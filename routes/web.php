@@ -24,3 +24,11 @@ Route::get('/dashboard/users', function() {
 Route::get('/dashboard/home', function() {
     return view('dashboard.home.index');
 });
+
+Route::get('/auth', function() {
+    return view('auth.index');
+});
+
+Route::get('/auth/SMScode', function() {
+    return view('auth.SMScode');
+});
