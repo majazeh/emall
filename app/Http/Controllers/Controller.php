@@ -18,12 +18,22 @@ class Controller extends BaseController
     {
         $this->data = new stdClass();
         $this->data->global = new stdClass();
+        $this->data->layouts = new stdClass();
+
+        $this->data->layouts->theme = 'layouts.theme';
 
         $this->data->global->title = 'Emall';
     }
 
     public function view(Request $request, String $view, array $data = []){
         $this->data->global->page = $request->route()->getAction('as');
+        if($request->ajax() && !$request->wantsJson()){
+            if(view()->exists("$view-xhr")){
+                $view = "$view-xhr" ;
+            }elseif(view()->exists($this->data->layouts->theme . '-xhr')){
+                $this->data->layouts->theme .= '-xhr';
+            }
+        }
         return view($view, (array) $this->data, $data);
     }
 }

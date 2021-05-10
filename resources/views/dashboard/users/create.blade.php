@@ -1,4 +1,4 @@
-@extends('dashboard.theme')
+@extends($layouts->theme)
 @section('content')
 <div>
     <h2 class="font-bold mb-4 text-gray-800 cursor-default">إنشاء مستخدم جديد</h2>

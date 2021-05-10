@@ -15,6 +15,7 @@
 
 <body class="min-h-screen flex flex-col text-gray-900" data-page="{{ $global->page }}">
     @yield('body')
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>
