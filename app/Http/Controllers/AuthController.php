@@ -15,6 +15,7 @@ class AuthController extends Controller
         $this->data->layouts->theme = 'auth.theme';
     }
     public function form(Request $request){
+        if(auth()->check()) return redirect()->route('dashboard');
         return $this->view($request, 'auth.auth');
     }
 
@@ -28,6 +29,7 @@ class AuthController extends Controller
     }
 
     public function verifyForm(Request $request, $verify){
+        if(auth()->check()) return redirect()->route('dashboard');
         $this->data->verify = $verify;
         return $this->view($request, 'auth.SMScode');
     }
@@ -35,6 +37,9 @@ class AuthController extends Controller
     public function verify(Request $request, $verify){
         $user = User::apiPost("auth/$verify", $request->all());
         $request->session()->put('user', $user);
-        return response()->json($user);
+        return $user->response([
+            'redirect' => $user->type == 'user' ? route('home') : route('dashboard'),
+            'direct' => true
+        ]);
     }
 }
