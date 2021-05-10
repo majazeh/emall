@@ -6,8 +6,9 @@
             <h1 class="text-center font-black text-xl text-brand mb-8">
                 <a href="/" class="direct" title="ایمول" aria-label="ایمول">ایمول</a>
             </h1>
-
-            @yield('form')
+            <div data-xhr="form">
+                @yield('form')
+            </div>
         </div>
     </div>
 </div>

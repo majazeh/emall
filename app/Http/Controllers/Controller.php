@@ -26,14 +26,21 @@ class Controller extends BaseController
     }
 
     public function view(Request $request, String $view, array $data = []){
-        $this->data->global->page = $request->route()->getAction('as');
-        if($request->ajax() && !$request->wantsJson()){
+        $this->data->global->page = str_replace('.', '-', $request->route()->getAction('as'));
+        if($request->ajax()){
             if(view()->exists("$view-xhr")){
                 $view = "$view-xhr" ;
             }elseif(view()->exists($this->data->layouts->theme . '-xhr')){
                 $this->data->layouts->theme .= '-xhr';
             }
         }
-        return view($view, (array) $this->data, $data);
+        $view = response(view($view, (array) $this->data, $data));
+        if($request->ajax()){
+            $content = $view->getContent();
+            $data = json_encode($this->data->global);
+            $content = "$data\n$content";
+            $view->setContent($content);
+        }
+        return $view;
     }
 }

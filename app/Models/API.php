@@ -10,8 +10,10 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Validation\ValidationException;
 
 class API extends Model{
+    public $response;
     protected $guarded = [];
 
     public function __construct(array $data = [])
@@ -30,21 +32,28 @@ class API extends Model{
         $endpoint = join('/', [trim(env('ENDPOINT'), '/'), trim($endpoint, '/')]);
 
         $headers       = array(
-            'Accept: application/json',
-            'charset: utf-8'
+            'Accept' => 'application/json',
+            'charset' => 'utf-8'
         );
-        $response = Http::get($endpoint, [
-            'name' => 'Taylor',
-            'page' => 1,
-        ]);
+        if(session('user') && isset(session('user')->response->token)){
+            $headers['Authorization'] = 'Bearer '.session('user')->response->token;
+        }
+        $method = strtolower($method);
+        $response = Http::withHeaders($headers)->$method($endpoint, $data);
         $response->onError(function($response){
+            if($response->getStatusCode() == 422){
+                throw ValidationException::withMessages((array) $response->object()->errors);
+            }
             abort($response->getStatusCode(), $response->toPsrResponse()->getReasonPhrase());
         });
+        if(!$response->object()){
+            echo $response->body();
+            exit();
+        }
         if($callback){
             return $callback($response);
         }
-        $body = $response->object();
-        return static::fakeModel($body);
+        return static::fakeModel($response->object());
     }
 
 
@@ -89,5 +98,9 @@ class API extends Model{
 
     public static function apiDelete(String $endpoint, array $data = [], Closure $callback = null){
         return static::exec($endpoint, 'DELETE', $data);
+    }
+
+    public function response(array $data = []){
+        return response()->json(array_merge(['data' => $this->toArray()], $data));
     }
 }

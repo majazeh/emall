@@ -33,53 +33,57 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
-                        <tr class="transition hover:bg-gray-50">
-                            <td class="px-3 py-2 whitespace-nowrap">
-                                <div class="flex items-center cursor-default">
-                                    <span class="text-sm text-gray-600 block text-right dir-ltr">AR966669</span>
-                                </div>
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap">
-                                <div class="flex items-center cursor-default">
-                                    <span class="text-sm text-gray-600">حسین نخلی</span>
-                                </div>
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <a href="tel:+989123456789" class="block text-right dir-ltr text-sm text-gray-600 hover:text-brand" target="_blank" title="989123456789" aria-label="989123456789">
-                                        <span class="hidden md:block">+989123456789</span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 block md:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap hidden sm:table-cell">
-                                <div class="flex items-center cursor-default">
-                                    <span class="text-sm text-gray-600">المستخدم</span>
-                                </div>
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap hidden sm:table-cell">
-                                <div class="flex items-center cursor-default">
-                                    <span class="text-sm text-gray-600">فعال</span>
-                                </div>
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap text-left dir-ltr">
-                                <div class="flex">
-                                    <a href="#" title="تعديل" aria-label="تعديل">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 hover:text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
+                        @foreach ($users as $user)
+                            <tr class="transition hover:bg-gray-50">
+                                <td class="px-3 py-2 whitespace-nowrap">
+                                    <div class="flex items-center cursor-default">
+                                        <span class="text-sm text-gray-600 block text-right dir-ltr">{{ $user->id }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-3 py-2 whitespace-nowrap">
+                                    <div class="flex items-center cursor-default">
+                                        <span class="text-sm text-gray-600">{{ $user->name }}</span>
+                                    </div>
+                                </td>
+                                <td class="px-3 py-2 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <a href="tel:+{{ $user->mobile }}" class="block text-right dir-ltr text-sm text-gray-600 hover:text-brand" target="_blank" title="{{ $user->mobile }}" aria-label="{{ $user->mobile }}">
+                                            <span class="hidden md:block">+{{ $user->mobile }}</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 block md:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="px-3 py-2 whitespace-nowrap hidden sm:table-cell">
+                                    <div class="flex items-center cursor-default">
+                                        <span class="text-sm text-gray-600">@lang($user->type)</span>
+                                    </div>
+                                </td>
+                                <td class="px-3 py-2 whitespace-nowrap hidden sm:table-cell">
+                                    <div class="flex items-center cursor-default">
+                                        <span class="text-sm text-gray-600">@lang($user->status)</span>
+                                    </div>
+                                </td>
+                                <td class="px-3 py-2 whitespace-nowrap text-left dir-ltr">
+                                    <div class="flex">
+                                        @can('update', $user)
+                                            <a href="{{ route('dashboard.users.edit', $user->id) }}" title="تعديل" aria-label="تعديل">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 hover:text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                </svg>
+                                            </a>
+                                        @endcan
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
+    {{ $users->links() }}
     <nav class="flex justify-center items-center flex-wrap mt-8 text-sm">
         <a href="#" class="flex justify-center items-center flex-shrink-0 h-7 text-gray-700 hover:text-brand transition me-2" title="السابق" aria-label="السابق">السابق</a>
         <a href="#" class="flex justify-center items-center flex-shrink-0 w-7 h-7 me-2 text-gray-700 rounded-full hover:bg-gray-200 transition focus">1</a>
