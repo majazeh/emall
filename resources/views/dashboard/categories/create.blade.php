@@ -12,7 +12,7 @@
             <input type="text" name="title" id="title" value="{{ $category->title }}" class="w-full h-10 px-4 border border-gray-400 focus:border-gray-400 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand transition">
         </div>
 
-        <div>
+        <div class="mt-4">
             <label for="parent_id" class="block mb-2 text-sm text-gray-700 font-bold cursor-default">والد</label>
             <input type="text" name="parent_id" id="parent_id" value="{{ $category->parents && $category->parents->last() ? $category->parents->last()->id : null }}" class="w-full h-10 px-4 border border-gray-400 focus:border-gray-400 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand transition">
         </div>

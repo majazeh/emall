@@ -37,7 +37,7 @@
                     <tbody class="divide-y divide-gray-200">
                         @foreach ($categories as $category)
                             <tr class="transition hover:bg-gray-50">
-                                <td class="px-3 py-4 whitespace-nowrap">
+                                <td class="px-3 py-3 whitespace-nowrap">
                                     @if ($category->image_url)
                                         <div class="flex items-center">
                                             <a href="#" class="flex-shrink-0 h-10 w-10" target="_blank">
@@ -46,17 +46,17 @@
                                         </div>
                                     @endif
                                 </td>
-                                <td class="px-3 py-4 whitespace-nowrap">
+                                <td class="px-3 py-3 whitespace-nowrap">
                                     <div class="flex items-center cursor-default">
                                         <span class="text-sm text-gray-600">{{ $category->level }}</span>
                                     </div>
                                 </td>
-                                <td class="px-3 py-4 whitespace-nowrap">
+                                <td class="px-3 py-3 whitespace-nowrap">
                                     <div class="flex items-center cursor-default">
                                         <span class="text-sm text-gray-600">{{ $category->title }}</span>
                                     </div>
                                 </td>
-                                <td class="px-3 py-4 whitespace-nowrap">
+                                <td class="px-3 py-3 whitespace-nowrap">
                                     <div class="flex items-center cursor-default">
                                         @foreach ($category->parents as $parent)
                                             <span class="text-sm text-gray-600">{{ $parent->title }}</span>
@@ -66,12 +66,12 @@
                                         @endforeach
                                     </div>
                                 </td>
-                                {{-- <td class="px-3 py-4 whitespace-nowrap">
+                                {{-- <td class="px-3 py-3 whitespace-nowrap">
                                     <div class="flex items-center cursor-default">
                                         <span class="text-sm text-gray-600">{{ $category->count }}</span>
                                     </div>
                                 </td> --}}
-                                <td class="px-3 py-4 whitespace-nowrap text-left dir-ltr">
+                                <td class="px-3 py-3 whitespace-nowrap text-left dir-ltr">
                                     <div class="flex">
                                             <a href="{{ route('dashboard.categories.edit', $category->id) }}" title="تعديل" aria-label="تعديل">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 hover:text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
