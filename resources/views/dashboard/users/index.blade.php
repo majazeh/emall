@@ -2,7 +2,7 @@
 @section('content')
 <div class="mb-4 flex items-center">
     <h2 class="font-bold text-gray-800 cursor-default">المستخدمين</h2>
-    <span class="text-sm text-gray-400 ms-2">(74)</span>
+    <span class="text-sm text-gray-400 ms-2">({{ $users->total() }})</span>
 </div>
 
 <div class="flex items-center mb-4">
@@ -84,14 +84,5 @@
         </div>
     </div>
     {{ $users->links() }}
-    <nav class="flex justify-center items-center flex-wrap mt-8 text-sm">
-        <a href="#" class="flex justify-center items-center flex-shrink-0 h-7 text-gray-700 hover:text-brand transition me-2" title="السابق" aria-label="السابق">السابق</a>
-        <a href="#" class="flex justify-center items-center flex-shrink-0 w-7 h-7 me-2 text-gray-700 rounded-full hover:bg-gray-200 transition focus">1</a>
-        <a href="#" class="flex justify-center items-center flex-shrink-0 w-7 h-7 me-2 text-gray-700 rounded-full hover:bg-gray-200 transition focus">2</a>
-        <span class="flex justify-center items-center flex-shrink-0 w-7 h-7 me-2 bg-brand text-white rounded-full cursor-default">3</span>
-        <a href="#" class="flex justify-center items-center flex-shrink-0 w-7 h-7 me-2 text-gray-700 rounded-full hover:bg-gray-200 transition focus">4</a>
-        <a href="#" class="flex justify-center items-center flex-shrink-0 w-7 h-7 me-2 text-gray-700 rounded-full hover:bg-gray-200 transition focus">5</a>
-        <a href="#" class="flex justify-center items-center flex-shrink-0 h-7 text-gray-700 hover:text-brand transition ms-2" title="التالي" aria-label="التالي">التالي</a>
-    </nav>
 </div>
 @endsection
