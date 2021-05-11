@@ -22,6 +22,8 @@ class AuthController extends Controller
     public function post(Request $request){
         $user = User::apiPost('auth', $request->all());
         if($user->mobile_token->token){
+            $this->data->user = $user;
+            return $this->verifyForm($request, $user->mobile_token->token);
             $response = $user->toArray();
             $response['redirect'] = route('auth.verifyForm', $user->mobile_token->token);
             return $response;
