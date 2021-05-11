@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
     public function index(Request $request){
-        return $this->view($request, 'dashboard.categories.index');
+        return $this->view($request, 'dashboard.products.index');
     }
 
     public function create(Request $request){
-        return $this->view($request, 'dashboard.categories.create');
+        return $this->view($request, 'dashboard.products.create');
     }
 }
