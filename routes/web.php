@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\Controller;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Models\Product;
@@ -13,6 +14,7 @@ Route::prefix('dashboard')->group(function () {
     Route::group(['middleware' => ['web', 'auth']], function(){
         Route::get('/', [Controller::class, 'dashboard'])->name('dashboard');
         Route::resource('users', UserController::class, ['as' => 'dashboard']);
+        Route::resource('categories', CategoryController::class, ['as' => 'dashboard']);
     });
 });
 
@@ -26,16 +28,3 @@ Route::post('/auth', [AuthController::class, 'post'])->name('auth.post');
 
 // Route::get('/auth/{verify}', [AuthController::class, 'verifyForm'])->name('auth.verifyForm');
 Route::post('/auth/{verify}', [AuthController::class, 'verify'])->name('auth.verify');
-
-
-Route::get('/auth/SMScode', function() {
-    return view('auth.SMScode');
-});
-
-Route::get('/dashboard/categories', function() {
-    return view('dashboard.categories.index');
-});
-
-Route::get('/dashboard/categories/create', function() {
-    return view('dashboard.categories.create');
-});
