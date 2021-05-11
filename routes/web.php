@@ -19,6 +19,7 @@ Route::prefix('dashboard')->group(function () {
         Route::resource('categories', CategoryController::class, ['as' => 'dashboard']);
         Route::POST('categories/{category}', [CategoryController::class, 'update'])->name('dashboard.categories.update');
         Route::resource('brands', BrandController::class, ['as' => 'dashboard']);
+        Route::POST('brands/{brand}', [BrandController::class, 'update'])->name('dashboard.brands.update');
         Route::resource('products', ProductController::class, ['as' => 'dashboard']);
     });
 });

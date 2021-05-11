@@ -2,14 +2,14 @@
 @section('content')
 <div class="mb-4 flex items-center">
     <h2 class="font-bold text-gray-800 cursor-default">العلامات التجارية</h2>
-    {{-- <span class="text-sm text-gray-400 ms-2">({{ $brands->total() }})</span> --}}
+    <span class="text-sm text-gray-400 ms-2">({{ $brands->count() }})</span>
 </div>
 
 <div class="flex items-center mb-4">
     <div class="flex flex-1">
         <input type="search" id="search" placeholder="بحث" class="flex-1 text-sm placeholder-gray-400 border border-gray-200 rounded h-10 px-2 focus:border-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-opacity-60 focus:ring-brand">
     </div>
-    <a href="#" class="flex items-center justify-center flex-shrink-0 w-10 sm:w-auto h-10 sm:px-4 text-sm text-brand border border-brand rounded-full hover:bg-brand-50 transition focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-opacity-60 ring-brand ms-2" title="إنشاء فئة جديدة" aria-label="إنشاء فئة جديدة">
+    <a href="{{ route('dashboard.brands.create') }}" class="flex items-center justify-center flex-shrink-0 w-10 sm:w-auto h-10 sm:px-4 text-sm text-brand border border-brand rounded-full hover:bg-brand-50 transition focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-opacity-60 ring-brand ms-2" title="إنشاء فئة جديدة" aria-label="إنشاء فئة جديدة">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:me-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
             </svg>
@@ -26,57 +26,47 @@
                         <tr>
                             <th class="px-3 py-2 text-right text-sm font-semibold text-gray-500" scope="col">صورة</th>
                             <th class="px-3 py-2 text-right text-sm font-semibold text-gray-500" scope="col">إسم</th>
-                            <th class="px-3 py-2 text-right text-sm font-semibold text-gray-500" scope="col">عدد</th>
+                            {{-- <th class="px-3 py-2 text-right text-sm font-semibold text-gray-500" scope="col">عدد</th> --}}
                             <th class="relative px-3 py-2" scope="col">
                                 <span class="sr-only">تعدیل</span>
                             </th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
-                        {{-- @foreach ($brands as $brand) --}}
+                        @foreach ($brands as $brand)
                             <tr class="transition hover:bg-gray-50">
                                 <td class="px-3 py-3 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <a href="#" class="flex-shrink-0 h-10 w-10" target="_blank">
-                                            <img class="h-10 w-10 rounded" src="https://emall.market/storage/products/df16a22b82269b7ca0396e7bb8370cc7-250.jpg" alt="">
-                                        </a>
-                                    </div>
+                                    @if ($brand->image_url)
+                                        <div class="flex items-center">
+                                            <img class="h-10 w-10 rounded" src="{{ $brand->image_url->small }}" alt="">
+                                        </div>
+                                    @endif
                                 </td>
                                 <td class="px-3 py-3 whitespace-nowrap">
                                     <div class="flex items-center cursor-default">
-                                        {{-- <span class="text-sm text-gray-600">{{ $brand->name }}</span> --}}
-                                        <span class="text-sm text-gray-600">کوکاکولا</span>
+                                        <span class="text-sm text-gray-600">{{ $brand->title }}</span>
                                     </div>
                                 </td>
-                                <td class="px-3 py-3 whitespace-nowrap">
+                                {{-- <td class="px-3 py-3 whitespace-nowrap">
                                     <div class="flex items-center cursor-default">
-                                        {{-- <span class="text-sm text-gray-600">{{ $brand->count }}</span> --}}
-                                        <span class="text-sm text-gray-600">138</span>
+                                        <span class="text-sm text-gray-600">{{ $brand->count }}</span>
                                     </div>
-                                </td>
+                                </td> --}}
                                 <td class="px-3 py-3 whitespace-nowrap text-left dir-ltr">
                                     <div class="flex">
-                                        {{-- @can('update', $brand) --}}
-                                            {{-- <a href="{{ route('dashboard.categories.edit', $brand->id) }}" title="تعديل" aria-label="تعديل">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 hover:text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                                </svg>
-                                            </a> --}}
-                                            <a href="#" title="تعديل" aria-label="تعديل">
+                                            <a href="{{ route('dashboard.brands.edit', $brand->id) }}" title="تعديل" aria-label="تعديل">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 hover:text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                                 </svg>
                                             </a>
-                                        {{-- @endcan --}}
                                     </div>
                                 </td>
                             </tr>
-                        {{-- @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    {{-- {{ $brands->links() }} --}}
 </div>
 @endsection
