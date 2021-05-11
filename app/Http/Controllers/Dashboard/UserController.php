@@ -17,7 +17,15 @@ class UserController extends Controller
 
     public function create(Request $request){
         $this->data->global->title = __('Create new users');
+        $this->data->user = new User;
         return $this->view($request, 'dashboard.users.create');
+    }
+
+    public function store(Request $request){
+        $user = User::apiPost("users", $request->all());
+        return $user->response([
+            'redirect' => route('dashboard.users.index')
+        ]);
     }
 
     public function show(Request $request, $user){

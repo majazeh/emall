@@ -4,7 +4,7 @@
     <h2 class="font-bold mb-4 text-gray-800 cursor-default">@lang($user->id ? 'Edit user' : 'Create new user')</h2>
 </div>
 
-<form class="m-auto w-full md:w-1/2" action="{{ $user->id ? route('dashboard.users.update', $user->id) : route('dashboard.users.create') }}" method="POST">
+<form class="m-auto w-full md:w-1/2" action="{{ $user->id ? route('dashboard.users.update', $user->id) : route('dashboard.users.store') }}" method="POST">
     @csrf
     @method($user->id ? 'PUT' : 'POST')
     <div class="border border-gray-200 rounded p-4 mt-8">

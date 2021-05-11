@@ -11,6 +11,7 @@ Route::prefix('dashboard')->group(function () {
         return Product::apiGet('products');
     });
     Route::group(['middleware' => ['web', 'auth']], function(){
+        Route::get('/', [Controller::class, 'dashboard'])->name('dashboard');
         Route::resource('users', UserController::class, ['as' => 'dashboard']);
     });
 });
@@ -19,7 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/dashboard', [Controller::class, 'dashboard'])->name('dashboard');
 
 Route::get('/auth', [AuthController::class, 'form'])->name('auth.form');
 Route::post('/auth', [AuthController::class, 'post'])->name('auth.post');

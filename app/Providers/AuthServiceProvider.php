@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Auth::viaRequest('cookie', function ($request) {
-            if(!$request->session()->get('user')) return false;
+            if(!$request->session()->get('user')) return null;
             return $request->session()->get('user');
         });
     }
