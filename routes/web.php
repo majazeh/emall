@@ -31,3 +31,11 @@ Route::post('/auth/{verify}', [AuthController::class, 'verify'])->name('auth.ver
 Route::get('/auth/SMScode', function() {
     return view('auth.SMScode');
 });
+
+Route::get('/dashboard/categories', function() {
+    return view('dashboard.categories.index');
+});
+
+Route::get('/dashboard/categories/create', function() {
+    return view('dashboard.categories.create');
+});
