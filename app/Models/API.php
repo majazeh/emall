@@ -39,7 +39,16 @@ class API extends Model{
             $headers['Authorization'] = 'Bearer '.session('user')->response->token;
         }
         $method = strtolower($method);
-        $response = Http::withHeaders($headers)->$method($endpoint, $data);
+        $response = Http::withHeaders($headers);
+        foreach($data as $key => $param){
+            if($param instanceof UploadedFile){
+                $response->attach(
+                    $key, file_get_contents($param), $param->getClientOriginalName()
+                );
+                unset($data[$key]);
+            }
+        }
+        $response = $response->$method($endpoint, $data);
         $response->onError(function($response){
             if($response->getStatusCode() == 422){
                 throw ValidationException::withMessages((array) $response->object()->errors);
