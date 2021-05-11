@@ -13,8 +13,8 @@ const mix = require('laravel-mix');
  mix.browserSync({
     files: ['resources/js/*.js']
  });
-mix.combine('resources/js/*.js', 'public/js/app.js')
-    .postCss('resources/css/app.css', 'public/css', [
-        require('postcss-import'),
-        require('tailwindcss'),
-    ]);
+mix.combine('resources/js/*.js', 'public/js/app.js');
+    // .postCss('resources/css/app.css', 'public/css', [
+    //     require('postcss-import'),
+    //     require('tailwindcss'),
+    // ]);
