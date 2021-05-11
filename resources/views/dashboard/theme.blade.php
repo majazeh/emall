@@ -1,6 +1,6 @@
 @extends('layouts.theme')
 @section('body')
-    <aside id="aside" class="hidden lg:block fixed inset-y-0 -start-64 lg:start-0 w-64 h-screen bg-gray-50 border-e border-gray-200 z-50 transition ease-in-out overflow-y-auto">
+    <aside id="aside" class="bg-gray-50 border-e border-gray-200 z-50 transition ease-in-out overflow-y-auto">
         <div class="flex items-center h-20 px-2">
             <h1 class="text-xl text-brand font-bold line-clamp-1">
                 <a href="{{ config('app.url') }}" class="block">ایمول</a>

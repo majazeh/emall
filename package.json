@@ -19,6 +19,7 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.2.14",
+        "postcss-import": "^14.0.2",
         "tailwindcss": "^2.1.2",
         "tailwindcss-rtl": "^0.7.3"
     }
