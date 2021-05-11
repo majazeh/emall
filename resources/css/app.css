@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @import "NProgress";
 
@@ -13,11 +13,11 @@
 }
 
 .dir-rtl {
-	direction: rtl;
+    direction: rtl;
 }
 
 .dir-ltr {
-	direction: ltr;
+    direction: ltr;
 }
 
 /* Placeholder Left */
@@ -67,29 +67,29 @@
     height: 100%;
     z-index: 99;
     transition: 0.2s;
-  }
+}
 
-  [dir="rtl"] #aside {
+[dir="rtl"] #aside {
     right: -256px;
     left: auto;
-  }
+}
 
-  .aside-open #aside {
+.aside-open #aside {
     left: 0;
-  }
+}
 
-  [dir="rtl"] .aside-open #aside {
+[dir="rtl"] .aside-open #aside {
     right: 0;
     left: auto;
-  }
+}
 
-  @media (min-width: 1024px) {
+@media (min-width: 1024px) {
     #aside {
-      left: 0;
+        left: 0;
     }
 
     [dir="rtl"] #aside {
-      right: 0;
-      left: auto;
+        right: 0;
+        left: auto;
     }
-  }
+}
