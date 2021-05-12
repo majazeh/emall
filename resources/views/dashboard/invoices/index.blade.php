@@ -78,7 +78,7 @@
                                         </a>
                                     </div>
                                 </td>
-                                <td class="px-3 py-3 whitespace-nowrap text-left dir-ltr">
+                                <td class="px-3 py-2 whitespace-nowrap text-left dir-ltr">
                                     <div class="flex items-center">
                                         <div class="inline-flex me-4">
                                             <a href="#" title="print" aria-label="print">
