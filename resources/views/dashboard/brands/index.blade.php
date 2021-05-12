@@ -38,7 +38,9 @@
                                 <td class="px-3 py-3 whitespace-nowrap">
                                     @if ($brand->image_url)
                                         <div class="flex items-center">
-                                            <img class="h-10 w-10 rounded" src="{{ $brand->image_url->small }}" alt="">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded border border-gray-100" src="{{ $brand->image_url->small }}" alt="{{ $brand->title }}" title="{{ $brand->title }}">
+                                            </div>
                                         </div>
                                     @endif
                                 </td>

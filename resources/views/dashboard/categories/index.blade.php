@@ -41,7 +41,7 @@
                                     @if ($category->image_url)
                                         <div class="flex items-center">
                                             <a href="#" class="flex-shrink-0 h-10 w-10" target="_blank">
-                                                <img class="h-10 w-10 rounded" src="{{ $category->image_url->small }}" alt="">
+                                                <img class="h-10 w-10 rounded border border-gray-100" src="{{ $category->image_url->small }}" alt="{{ $category->title }}" title="{{ $category->title }}">
                                             </a>
                                         </div>
                                     @endif
