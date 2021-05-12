@@ -59,7 +59,7 @@
     <main id="main" class="flex-1 lg:ms-64">
         <header id="header" class="flex justify-between items-center h-20 px-4">
             <div>
-                <button id="aside-open" class="flex lg:hidden justify-center items-center w-12 h-12 border border-gray-200 rounded transition" aria-label="Open side nav">
+                <button id="aside-open" class="flex lg:hidden justify-center items-center w-12 h-12 border border-gray-200 rounded transition focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand" aria-label="Open side nav">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -73,7 +73,7 @@
                     </svg>
                 </a> --}}
 
-                <a href="#" class="flex justify-center items-center h-12 px-2 border border-gray-200 rounded transition" aria-label="My Profile">
+                <a href="#" class="flex justify-center items-center h-12 px-2 border border-gray-200 rounded transition focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand" aria-label="My Profile">
                     <div class="flex justify-center items-center w-8 h-8 border border-gray-200 rounded overflow-hidden me-2 bg-brand text-white text-xs">
                         <span>حن</span>
                         <!-- <img src="" alt="" width="32" height="32" class="w-8 h-8 object-cover object-center"> -->
