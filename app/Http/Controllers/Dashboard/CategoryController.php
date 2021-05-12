@@ -10,7 +10,9 @@ class CategoryController extends Controller
     public function index(Request $request){
         $this->data->global->title = __('Categories');
         $this->data->categories = $categories = Category::apiGet('categories', $request->all());
-
+        if($request->ajax() && $request->header('data-xhr-base') == 'select2'){
+            return $categories;
+        }
         return $this->view($request, 'dashboard.categories.index');
     }
 

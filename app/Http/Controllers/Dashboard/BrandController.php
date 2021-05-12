@@ -10,6 +10,9 @@ class BrandController extends Controller
     public function index(Request $request){
         $this->data->global->title = __('Brands');
         $this->data->brands = $brands = Brand::apiGet('brands', $request->all());
+        if($request->ajax() && $request->header('data-xhr-base') == 'select2'){
+            return $brands;
+        }
         return $this->view($request, 'dashboard.brands.index');
     }
 

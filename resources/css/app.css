@@ -3,6 +3,7 @@
 @import "tailwindcss/utilities";
 
 @import "NProgress";
+@import "select2";
 
 [lang="ar"] body {
     font-family: 'Almarai', sans-serif;

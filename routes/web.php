@@ -21,6 +21,8 @@ Route::prefix('dashboard')->group(function () {
         Route::resource('brands', BrandController::class, ['as' => 'dashboard']);
         Route::POST('brands/{brand}', [BrandController::class, 'update'])->name('dashboard.brands.update');
         Route::resource('products', ProductController::class, ['as' => 'dashboard']);
+        Route::POST('products/{product}', [ProductController::class, 'update'])->name('dashboard.products.update');
+
     });
 });
 
