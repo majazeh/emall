@@ -7,6 +7,7 @@
     <meta name="description" content="eMall Design System">
 
     <link rel="stylesheet" href="{{ asset('css/app.css?v=' . filemtime(public_path('css/app.css'))) }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ $global->title }}</title>
 </head>

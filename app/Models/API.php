@@ -53,6 +53,10 @@ class API extends Model{
             if($response->getStatusCode() == 422){
                 throw ValidationException::withMessages((array) $response->object()->errors);
             }
+            if(config('app.env') == 'local'){
+                echo $response->body();
+                exit();
+            }
             abort($response->getStatusCode(), $response->toPsrResponse()->getReasonPhrase());
         });
         if(!$response->object()){

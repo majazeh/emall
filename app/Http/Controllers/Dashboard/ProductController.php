@@ -9,6 +9,14 @@ class ProductController extends Controller
 {
     public function index(Request $request){
         $this->data->products = $products = Product::apiGet('products', $request->all());
+        if($request->ajax() && $request->header('data-xhr-base') == 'select2'){
+            return $products->map(function($product){
+                return [
+                    'id' => $product->id,
+                    'title' => $product->title . ' - ' . $product->unit . '('.$product->unit_type.')'
+                ];
+            });
+        }
         $this->data->global->title = __('Products');
         $products->setPath(route('dashboard.products.index'))->links();
         return $this->view($request, 'dashboard.products.index');
