@@ -1,7 +1,19 @@
 @extends($layouts->theme)
 @section('content')
 @include('dashboard.invoices.showHeader')
+<div class="mt-4">
+    @can('updateDetail', $invoice)
+        <form action="{{ route('dashboard.invoice-items.store', $invoice->id) }}" method="POST">
+            @csrf
 
+            <select name="product_id" id="product_id" class="select2-select border border-gray-400 focus:border-gray-400 h-10 rounded pl-4 pr-8 w-full text-sm focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand" data-url="{{ route('dashboard.products.index') }}"></select>
+            <input type="number" name="quantity" id="quantity">
+            <button type="submit">
+                @lang('Insert')
+            </button>
+    </form>
+    @endcan
+</div>
 <div class="mt-4">
     <div class="overflow-x-auto">
         <div class="align-middle inline-block min-w-full">
@@ -24,27 +36,6 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
-                        @can('updateDetail', $invoice)
-                        <tr class="bg-gray-50">
-                            <form action="{{ route('dashboard.invoice-items.store', $invoice->id) }}" method="POST">
-                                @csrf
-                            <td class="px-3 py-2 whitespace-nowrap" colspan="2">
-                                #
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap">
-                                <select name="product_id" id="product_id" class="select2-select border border-gray-400 focus:border-gray-400 h-10 rounded pl-4 pr-8 w-full text-sm focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand" data-url="{{ route('dashboard.products.index') }}"></select>
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap">
-                                <input type="number" name="quantity" id="quantity">
-                            </td>
-                            <td class="px-3 py-2 whitespace-nowrap">
-                                <button type="submit">
-                                    @lang('Insert')
-                                </button>
-                            </td>
-                        </form>
-                        </tr>
-                        @endcan
                         @foreach ($invoice->items as $item)
                             @include('dashboard.invoices.item')
                         @endforeach
