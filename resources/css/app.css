@@ -94,3 +94,15 @@
         left: auto;
     }
 }
+
+#aside > ul > li > a.active {
+	@apply bg-brand text-white;
+}
+
+#aside > ul > li > a.active:hover {
+	@apply bg-brand text-white;
+}
+
+#aside > ul > li ul a.active span {
+	@apply font-bold;
+}

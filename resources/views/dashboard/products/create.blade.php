@@ -8,6 +8,7 @@
     @csrf
     <div class="border border-gray-200 rounded p-4 mt-8">
         <div>
+            <label for="title" class="block mb-2 text-sm text-gray-700 font-bold cursor-default">العنوان</label>
             <input type="text" name="title" id="title" value="{{ $product->title }}" class="w-full h-10 px-4 border border-gray-400 focus:border-gray-400 rounded text-sm focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand transition">
         </div>
 
@@ -91,12 +92,12 @@
 
         <div class="mt-4">
             <label for="description" class="block mb-2 text-sm text-gray-700 font-bold cursor-default">@lang('description')</label>
-            <textarea name="description" id="description" rows="10">{{ $product->description }}</textarea>
+            <textarea class="resize-none w-full border border-gray-400 focus:border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand" name="description" id="description" rows="6">{{ $product->description }}</textarea>
         </div>
 
         <div class="mt-4">
             <label for="tags" class="block mb-2 text-sm text-gray-700 font-bold cursor-default">@lang('tags')</label>
-            <textarea name="tags" id="tags" rows="10">{{ $product->tags }}</textarea>
+            <textarea class="resize-none w-full border border-gray-400 focus:border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand" name="tags" id="tags" rows="4">{{ $product->tags }}</textarea>
         </div>
 
         <div class="mt-4">
