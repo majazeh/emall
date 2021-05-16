@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Almarai';
+    src: url('/fonts/Almarai/Almarai-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Almarai';
+    src: url('/fonts/Almarai/Almarai-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Almarai';
+    src: url('/fonts/Almarai/Almarai-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Almarai';
+    src: url('/fonts/Almarai/Almarai-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

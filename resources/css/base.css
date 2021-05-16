@@ -1,0 +1,15 @@
+[lang="ar"] body {
+    font-family: 'Almarai', sans-serif;
+}
+
+[dir="rtl"] #aside-close {
+    @apply transform rotate-180;
+}
+
+.dir-rtl {
+    direction: rtl;
+}
+
+.dir-ltr {
+    direction: ltr;
+}
