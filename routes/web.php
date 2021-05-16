@@ -40,3 +40,7 @@ Route::post('/auth', [AuthController::class, 'post'])->name('auth.post');
 
 // Route::get('/auth/{verify}', [AuthController::class, 'verifyForm'])->name('auth.verifyForm');
 Route::post('/auth/{verify}', [AuthController::class, 'verify'])->name('auth.verify');
+
+Route::get('/public', function() {
+    return view('public.index');
+});
