@@ -44,3 +44,15 @@ Route::post('/auth/{verify}', [AuthController::class, 'verify'])->name('auth.ver
 Route::get('/public', function() {
     return view('public.index');
 });
+
+Route::get('/public/login', function() {
+    return view('public.login.index');
+});
+
+Route::get('/public/login/SMScode', function() {
+    return view('public.login.SMScode');
+});
+
+Route::get('/public/product', function() {
+    return view('public.product');
+});
