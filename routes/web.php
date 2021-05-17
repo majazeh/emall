@@ -76,3 +76,11 @@ Route::get('/public/products/categories', function() {
 Route::get('/public/products/categoryProducts', function() {
     return view('public.products.categoryProducts');
 });
+
+Route::get('/public/invoices/cart', function() {
+    return view('public.invoices.cart');
+});
+
+Route::get('/public/invoices/location', function() {
+    return view('public.invoices.location');
+});
