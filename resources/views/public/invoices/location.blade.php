@@ -111,7 +111,7 @@
         </a>
     </nav>
 
-    <div class="fixed w-full h-full flex items-center justify-center bg-white bg-opacity-90 p-8 hidden">
+    <div class="fixed w-full h-full items-center justify-center bg-white bg-opacity-90 p-8 hidden {{-- flex --}}">
         <div class="block w-full sm:w-2/3 md:w-1/2 lg:w-1/3 2xl:w-1/4 bg-white border border-gray-300 rounded z-auto p-8">
             <div class="flex items-center justify-between">
                 <span>عدد المنتجات</span>
