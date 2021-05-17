@@ -78,7 +78,7 @@
                 </a>
                 <h2 class="text-xl font-bold mt-2">دبس الرمان</h2>
                 <div class="flex items-center mt-2 cursor-default">
-                    <div style="background-image: url('{{ asset('images/offer.svg') }}');" class="flex items-center justify-center w-6 h-6 text-white bg-no-repeat">
+                    <div style="background-image: url('{{ asset('images/offer.svg') }}');" class="flex items-center justify-center w-7 h-7 text-white bg-no-repeat">
                         <span class="text-xs">30%</span>
                     </div>
                     <div class="flex items-center font-bold text-green-700 ms-2">

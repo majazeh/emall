@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css?v=' . filemtime(public_path('css/app.css'))) }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Emall | Invoices</title>
+    <title>Emall | Products</title>
 </head>
 
 <body class="min-h-screen flex flex-col text-gray-900">
@@ -69,15 +69,15 @@
         </aside>
     </div>
     <main data-xhr="main">
-        <div class="p-4">
-            <form class="mb-4 search">
-                <input class="border border-gray-300 h-10 px-2 rounded w-full text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand lijax" id="global_search" name="q" placeholder="البحث" data-state='true' data-lijax='300 change' data-method='get' aria-label="Search">
-            </form>
-
+        <section class="p-4">
+            <h2 class="font-bold mb-4">المشروبات</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 mb-4">
                 <div class="flex border border-gray-200 rounded overflow-hidden h-32">
-                    <a href="https://emall.market/products/P966BZ" class="flex-shrink-0 w-32 h-32 overflow-hidden relative">
-                        <img src="https://emall.market/storage/products/d379348ee2382fe6b1f38c46abbf3fc4-250.jpg" alt="دبس الرمان" width="128" height="128" class="w-32 h-32">
+                    <a href="https://emall.market/products/P966BZ" class="relative flex-shrink-0 w-32 h-32 overflow-hidden">
+                        <img src="https://emall.market/storage/products/d379348ee2382fe6b1f38c46abbf3fc4-250.jpg" alt="دبس الرمان" width="128" height="128" class="w-full h-full">
+                        <div style="background-image: url('{{ asset('images/offer.svg') }}');" class="absolute top-2 end-2 flex items-center justify-center w-7 h-7 text-white bg-no-repeat">
+                            <span class="text-xs">12%</span>
+                        </div>
                     </a>
                     <div class="flex-1 flex flex-col justify-between py-2 px-2 h-32">
                         <div>
@@ -91,7 +91,7 @@
                                 </a>
                                 <div class="cursor-default">250 کیلوغرام</div>
                             </div>
-                            <div class="flex items-center mt-1">
+                            <div class="flex items-center mt-1 cursor-default">
                                 <div class="text-sm text-green-700 font-bold">
                                     <span>750</span>
                                     <span>دینار</span>
@@ -111,8 +111,11 @@
                     </div>
                 </div>
                 <div class="flex border border-gray-200 rounded overflow-hidden h-32">
-                    <a href="https://emall.market/products/P966BZ" class="flex-shrink-0 w-32 h-32 overflow-hidden relative">
-                        <img src="https://emall.market/storage/products/d379348ee2382fe6b1f38c46abbf3fc4-250.jpg" alt="دبس الرمان" width="128" height="128" class="w-32 h-32">
+                    <a href="https://emall.market/products/P966BZ" class="relative flex-shrink-0 w-32 h-32 overflow-hidden">
+                        <img src="https://emall.market/storage/products/d379348ee2382fe6b1f38c46abbf3fc4-250.jpg" alt="دبس الرمان" width="128" height="128" class="w-full h-full">
+                        <div style="background-image: url('{{ asset('images/offer.svg') }}');" class="absolute top-2 end-2 flex items-center justify-center w-7 h-7 text-white bg-no-repeat">
+                            <span class="text-xs">12%</span>
+                        </div>
                     </a>
                     <div class="flex-1 flex flex-col justify-between py-2 px-2 h-32">
                         <div>
@@ -126,7 +129,7 @@
                                 </a>
                                 <div class="cursor-default">250 کیلوغرام</div>
                             </div>
-                            <div class="flex items-center mt-1">
+                            <div class="flex items-center mt-1 cursor-default">
                                 <div class="text-sm text-green-700 font-bold">
                                     <span>750</span>
                                     <span>دینار</span>
@@ -162,7 +165,7 @@
                 <a href="#" class="flex justify-center items-center flex-shrink-0 w-7 h-7 me-2 text-gray-700 rounded-full hover:bg-gray-200 transition focus">5</a>
                 <a href="#" class="flex justify-center items-center flex-shrink-0 h-7 text-gray-700 hover:text-brand transition ms-2" title="التالي" aria-label="التالي">التالي</a>
             </nav>
-        </div>
+        </section>
     </main>
     <nav class="grid grid-cols-5 fixed inset-x-0 bottom-0 w-full h-12 rounded-t-xl shadow-lg border-t border-gray-300 bg-white">
         <a href="/cart" class="flex flex-col justify-center items-center text-center text-gray-600 hover:text-brand transition">

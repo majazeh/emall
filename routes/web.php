@@ -53,10 +53,6 @@ Route::get('/public/login/SMScode', function() {
     return view('public.login.SMScode');
 });
 
-Route::get('/public/product', function() {
-    return view('public.product');
-});
-
 Route::get('/public/invoices', function() {
     return view('public.invoices.index');
 });
@@ -65,6 +61,18 @@ Route::get('/public/invoices/invoice', function() {
     return view('public.invoices.invoice');
 });
 
-Route::get('/public/search', function() {
-    return view('public.search');
+Route::get('/public/products/search', function() {
+    return view('public.products.search');
+});
+
+Route::get('/public/products/product', function() {
+    return view('public.products.product');
+});
+
+Route::get('/public/products/categories', function() {
+    return view('public.products.categories');
+});
+
+Route::get('/public/products/categoryProducts', function() {
+    return view('public.products.categoryProducts');
 });
