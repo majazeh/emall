@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css?v=' . filemtime(public_path('css/app.css'))) }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>الصفحة الرئیسیة</title>
+    <title>Emall | Invoices</title>
 </head>
 
 <body class="min-h-screen flex flex-col text-gray-900">
@@ -69,85 +69,11 @@
         </aside>
     </div>
     <main data-xhr="main">
-        <section class="mt-4 mb-8 px-4">
-            <a href="#" class="flex justify-center items-center h-24 bg-brand text-white rounded overflow-hidden">
-                {{-- <img class="w-full h-full object-cover object-center" src="" alt="بنر"> --}}
-                <span>بنر</span>
-            </a>
-        </section>
-        <section class="mb-8">
-            <h2 class="font-bold mb-4 px-4">الاقسام</h2>
-            <div class="overflow-x-auto">
-                <div class="flex">
-                    <a href="https://emall.market?category=3" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        البقوليات
-                    </a>
-                    <a href="https://emall.market?category=6" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        البهارات
-                    </a>
-                    <a href="https://emall.market?category=19" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        الحلويات و المعجنات
-                    </a>
-                    <a href="https://emall.market?category=4" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        الزيوت
-                    </a>
-                    <a href="https://emall.market?category=9" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        الشاي
-                    </a>
-                    <a href="https://emall.market?category=5" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        المخللات
-                    </a>
-                    <a href="https://emall.market?category=8" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        المعلبات
-                    </a>
-                    <a href="https://emall.market?category=20" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        الاجبان و مشتقات الحليب
-                    </a>
-                    <a href="https://emall.market?category=21" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        النساتل و البسكويت
-                    </a>
-                    <a href="https://emall.market?category=22" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        الحليب
-                    </a>
-                    <a href="https://emall.market?category=23" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        المشروبات
-                    </a>
-                    <a href="https://emall.market?category=24" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        حساسية الحنطة
-                    </a>
-                    <a href="https://emall.market?category=7" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        صلصة
-                    </a>
-                    <a href="https://emall.market?category=25" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        الرز
-                    </a>
-                    <a href="https://emall.market?category=26" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        غذاء الاطفال
-                    </a>
-                    <a href="https://emall.market?category=10" id="category1"
-                        class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        حساء
-                    </a>
-                </div>
-            </div>
-        </section>
-        <section class="px-4 pb-12">
-            <h2 class="font-bold mb-4">المضاف حدیثا</h2>
+        <div class="p-4">
+            <form class="mb-4 search">
+                <input class="border border-gray-300 h-10 px-2 rounded w-full text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand lijax" id="global_search" name="q" placeholder="البحث" data-state='true' data-lijax='300 change' data-method='get' aria-label="Search">
+            </form>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 mb-4">
                 <div class="flex border border-gray-200 rounded overflow-hidden h-32">
                     <a href="https://emall.market/products/P966BZ" class="flex-shrink-0 w-32 h-32 overflow-hidden relative">
@@ -227,7 +153,16 @@
                     </div>
                 </div>
             </div>
-        </section>
+            <nav class="flex justify-center items-center flex-wrap my-8 text-sm">
+                <a href="#" class="flex justify-center items-center flex-shrink-0 h-7 text-gray-700 hover:text-brand transition me-2" title="السابق" aria-label="السابق">السابق</a>
+                <a href="#" class="flex justify-center items-center flex-shrink-0 w-7 h-7 me-2 text-gray-700 rounded-full hover:bg-gray-200 transition focus">1</a>
+                <a href="#" class="flex justify-center items-center flex-shrink-0 w-7 h-7 me-2 text-gray-700 rounded-full hover:bg-gray-200 transition focus">2</a>
+                <span class="flex justify-center items-center flex-shrink-0 w-7 h-7 me-2 bg-brand text-white rounded-full cursor-default">3</span>
+                <a href="#" class="flex justify-center items-center flex-shrink-0 w-7 h-7 me-2 text-gray-700 rounded-full hover:bg-gray-200 transition focus">4</a>
+                <a href="#" class="flex justify-center items-center flex-shrink-0 w-7 h-7 me-2 text-gray-700 rounded-full hover:bg-gray-200 transition focus">5</a>
+                <a href="#" class="flex justify-center items-center flex-shrink-0 h-7 text-gray-700 hover:text-brand transition ms-2" title="التالي" aria-label="التالي">التالي</a>
+            </nav>
+        </div>
     </main>
     <nav class="grid grid-cols-5 fixed inset-x-0 bottom-0 w-full h-12 rounded-t-xl shadow-lg border-t border-gray-300 bg-white">
         <a href="/cart" class="flex flex-col justify-center items-center text-center text-gray-600 hover:text-brand transition">

@@ -72,12 +72,10 @@
         <section class="w-full sm:w-2/3 md:w-1/2 xl:w-1/3 2xl:w-1/4 mx-auto pb-12">
             <img class="mx-auto" src="https://emall.market/storage/products/d379348ee2382fe6b1f38c46abbf3fc4-500.jpg" alt="دبس الرمان">
             <div class="relative mt-4 px-4">
-                <div class="flex">
-                    <a href="#" class="flex items-center">
-                        <img class="w-6 h-6 rounded-full me-2" src="https://emall.market/storage/products/d379348ee2382fe6b1f38c46abbf3fc4-500.jpg" alt="">
-                        <span>لمسا</span>
-                    </a>
-                </div>
+                <a href="#" class="flex items-center">
+                    <img class="w-6 h-6 rounded-full me-2" src="https://emall.market/storage/products/d379348ee2382fe6b1f38c46abbf3fc4-500.jpg" alt="">
+                    <span>لمسا</span>
+                </a>
                 <h2 class="text-xl font-bold mt-2">دبس الرمان</h2>
                 <div class="flex items-center mt-2 cursor-default">
                     <div style="background-image: url('{{ asset('images/offer.svg') }}');" class="flex items-center justify-center w-6 h-6 text-white bg-no-repeat">

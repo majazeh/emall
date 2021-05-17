@@ -64,3 +64,7 @@ Route::get('/public/invoices', function() {
 Route::get('/public/invoices/invoice', function() {
     return view('public.invoices.invoice');
 });
+
+Route::get('/public/search', function() {
+    return view('public.search');
+});
