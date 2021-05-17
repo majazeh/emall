@@ -95,7 +95,7 @@
                 </div>
                 <div class="flex items-center px-2 text-sm text-gray-700 font-bold">
                     <span>16,750</span>
-                    <span class="mr-1">د. ع</span>
+                    <span class="ms-1">د. ع</span>
                 </div>
                 <div class="flex items-center px-2 text-sm text-gray-600 font-bold">قيد الطلب</div>
                 {{-- <div class="flex items-center px-2 text-sm text-yellow-400 font-bold">جاری الطلب</div> --}}

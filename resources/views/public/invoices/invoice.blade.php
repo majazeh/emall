@@ -91,9 +91,9 @@
                     <div class="flex items-baseline mt-2">
                         <div class="flex items-baseline text-sm text-green-700 font-bold">
                             <span>850</span>
-                            <span class="mr-1">دینار</span>
+                            <span class="ms-1">دینار</span>
                         </div>
-                        <div class="flex items-baseline text-xs text-gray-500 line-through mr-2">
+                        <div class="flex items-baseline text-xs text-gray-500 line-through ms-2">
                             <span>1,000</span>
                             <span>دینار</span>
                         </div>
@@ -106,7 +106,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
                         </svg>
-                        <span class="text-sm font-bold mr-2">850 دینار</span>
+                        <span class="text-sm font-bold ms-2">850 دینار</span>
                     </div>
                 </div>
             </div>
