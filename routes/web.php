@@ -56,3 +56,11 @@ Route::get('/public/login/SMScode', function() {
 Route::get('/public/product', function() {
     return view('public.product');
 });
+
+Route::get('/public/invoices', function() {
+    return view('public.invoices.index');
+});
+
+Route::get('/public/invoices/invoice', function() {
+    return view('public.invoices.invoice');
+});
