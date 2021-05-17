@@ -84,3 +84,7 @@ Route::get('/public/invoices/cart', function() {
 Route::get('/public/invoices/location', function() {
     return view('public.invoices.location');
 });
+
+Route::get('/public/invoices/success', function() {
+    return view('public.invoices.success');
+});
