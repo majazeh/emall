@@ -41,6 +41,12 @@ return [
             'provider' => 'users',
         ],
 
+        'relative' => [
+            'driver' => 'authIf',
+            'provider' => 'users',
+        ],
+
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',

@@ -18,6 +18,12 @@ class API extends Model{
 
     public function __construct(array $data = [])
     {
+        parent::__construct();
+        $this->setRawAttributes($data);
+    }
+
+    public function setRawAttributes(array $data, $sync = false)
+    {
         $attributes = Arr::except($data, array_keys($this->with));
         foreach($this->with as $with => $model){
             if(isset($data[$with])){
@@ -25,7 +31,7 @@ class API extends Model{
                 $this->setRelation($with, is_array($data[$with]) ? $model::hydrate((array) $data[$with]) : new $model((array) $data[$with]));
             }
         }
-        parent::__construct($attributes);
+        return parent::setRawAttributes($attributes, $sync);
     }
 
     public static function exec(String $endpoint, String $method = 'GET', array $data = [], Closure $callback = null){
@@ -54,6 +60,7 @@ class API extends Model{
                 throw ValidationException::withMessages((array) $response->object()->errors);
             }
             if(config('app.env') == 'local'){
+                dd($response->collect());
                 echo $response->body();
                 exit();
             }
@@ -74,7 +81,7 @@ class API extends Model{
         if(isset($body->data) && is_object($body->data)){
             $result = new static((array) $body->data);
             $result->common($body->data, $body);
-        }elseif(is_array($body->data) && isset($body->meta->current_page)){
+        }elseif(isset($body->data) && is_array($body->data) && isset($body->meta->current_page)){
             $models = [];
             foreach($body->data as $data){
                 $model = new static((array) $data);
@@ -82,9 +89,8 @@ class API extends Model{
                 $models[] = $model;
             }
             $result = new LengthAwarePaginator($models, $body->meta->total, $body->meta->per_page, $body->meta->current_page);
-        }elseif(is_array($body->data)){
-            $result = new Collection($body->data);
-
+        }elseif(isset($body->data) &&  is_array($body->data)){
+            $result = static::hydrate($body->data);
         }
         if(isset($result)){
             $result->response = $body;

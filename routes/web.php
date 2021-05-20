@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Client\CartController;
+use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\Controller;
@@ -14,7 +16,7 @@ Route::prefix('dashboard')->group(function () {
     Route::get('products', function(){
         return Product::apiGet('products');
     });
-    Route::group(['middleware' => ['web', 'auth']], function(){
+    Route::group(['middleware' => ['auth']], function(){
         Route::get('/', [Controller::class, 'dashboard'])->name('dashboard');
         Route::resource('users', UserController::class, ['as' => 'dashboard']);
         Route::resource('categories', CategoryController::class, ['as' => 'dashboard']);
@@ -30,9 +32,14 @@ Route::prefix('dashboard')->group(function () {
     });
 });
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::group(['middleware' => ['auth']], function(){
+    Route::post('/cart/items/{product}', [CartController::class, 'store'])->name('cart.items.store');
+});
+Route::group(['middleware' => ['auth:relative']], function(){
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('products', [HomeController::class, 'products'])->name('products.index');
+    Route::get('products/{product}', [HomeController::class, 'show'])->name('products.show');
+});
 
 
 Route::get('/auth', [AuthController::class, 'form'])->name('auth.form');
