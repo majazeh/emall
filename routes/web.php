@@ -33,8 +33,10 @@ Route::prefix('dashboard')->group(function () {
 });
 
 Route::group(['middleware' => ['auth']], function(){
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('/cart/items/{product}', [CartController::class, 'store'])->name('cart.items.store');
     Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
+    Route::post('/cart/request', [CartController::class, 'request'])->name('cart.request');
 });
 Route::group(['middleware' => ['auth:relative']], function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');

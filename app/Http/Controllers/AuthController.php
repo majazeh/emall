@@ -44,4 +44,13 @@ class AuthController extends Controller
             'direct' => true
         ]);
     }
+
+    public function logout(Request $request){
+        User::apiPost('logout');
+        $request->session()->remove('user');
+        return [
+            'redirect' => route('home'),
+            'direct' => true
+        ];
+    }
 }

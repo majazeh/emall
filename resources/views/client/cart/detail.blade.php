@@ -27,5 +27,19 @@
             </div>
         </div>
     </div>
-    <button class="flex items-center justify-center text-sm text-center text-white h-10 w-full bg-brand rounded-full mt-2 mb-8" data-cart-close="" type="submit" href="https://emall.market/cart/close?I966666X">تاکید الطلب</button>
+    <div>
+        <input type="hidden" name="location" id="location" value="" data-lat="{{  $cart->location[0]}}" data-lng="{{  $cart->location[1]}}" data-for="map">
+        <div id="map" class="w-full h-72" data-map></div>
+    </div>
+    <div>
+        Address:{{ $cart->address }}
+    </div>
+    @if ($cart->status == 'draft')
+        <div>
+            <label>Address:
+                <textarea name="address"></textarea>
+            </label>
+        </div>
+        <button type="submit" class="flex items-center justify-center text-sm text-center text-white h-10 w-full bg-brand rounded-full mt-2 mb-8" data-cart-close="" type="submit" >تاکید الطلب</button>
+    @endif
 </section>

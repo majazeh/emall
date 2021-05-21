@@ -29,4 +29,9 @@ class CartController extends Controller
         $product->setRelation('cart', $item);
         return $this->view($request, 'client.products.cartChange');
     }
+
+    public function request(Request $request){
+        $request = Invoice::apiPost('/cart/request', $request->all());
+        dd($request);
+    }
 }

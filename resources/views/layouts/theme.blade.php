@@ -14,6 +14,7 @@
 
 <body class="min-h-screen flex flex-col text-gray-900" data-page="{{ $global->page }}">
     @yield('body')
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google.map') }}&libraries=visualization" sync defer></script>
     <script src="{{ asset('js/app.js?v=' . filemtime(public_path('js/app.js'))) }}"></script>
 </body>
 
