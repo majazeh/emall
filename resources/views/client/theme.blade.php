@@ -2,7 +2,7 @@
 @section('body')
     <header class="flex items-center justify-between bg-brand h-12 p-4">
         <div class="flex items-center text-white">
-            <button class="rounded focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-white">
+            <button class="rounded focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-white" id="aside-open">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -23,7 +23,7 @@
             </a>
         </div>
         @else
-            <a href="{{ route('auth') }}" class="flex items-center text-white">
+            <a href="{{ route('auth.form') }}" class="direct flex items-center text-white">
                 <span class="me-1 text-sm hidden sm:block">تسجيل الدخول / التسجيل</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -87,13 +87,13 @@
             </svg>
             <div class="truncate text-xs mt-1">الطلبات</div>
         </a>
-        <a href="#" class="flex flex-col justify-center items-center text-center text-gray-600 hover:text-brand transition">
+        <a href="{{ route('products.search') }}" class="flex flex-col justify-center items-center text-center text-gray-600 hover:text-brand transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <div class="truncate text-xs mt-1">البحث</div>
         </a>
-        <a href="#" class="flex flex-col justify-center items-center text-center text-gray-600 hover:text-brand transition">
+        <a href="{{ route('products.index') }}" class="flex flex-col justify-center items-center text-center text-gray-600 hover:text-brand transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
             </svg>

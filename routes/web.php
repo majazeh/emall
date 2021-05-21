@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth']], function(){
 Route::group(['middleware' => ['auth:relative']], function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('products', [HomeController::class, 'products'])->name('products.index');
+    Route::get('products/search', [HomeController::class, 'search'])->name('products.search');
     Route::get('products/{product}', [HomeController::class, 'show'])->name('products.show');
 });
 

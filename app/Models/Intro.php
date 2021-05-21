@@ -13,6 +13,9 @@ class Intro extends API
         if(isset($body->auth)){
             $result->auth = new User((array) $body->auth);
         }
+        if(isset($body->cart)){
+            $result->cart = new Invoice((array) $body->cart->data);
+        }
         $result->products = Product::fakeModel($body->products);
         $result->brands = Brand::fakeModel($body->brands);
         return $result;
