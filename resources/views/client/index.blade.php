@@ -11,7 +11,7 @@
     <div class="overflow-x-auto">
         <div class="flex">
             @foreach ($intro->categories as $parent)
-                @foreach ($parent->subs as $item)
+                @foreach ($parent->subs ?: [] as $item)
                     <a
                         class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
                         {{ $item->title }}
