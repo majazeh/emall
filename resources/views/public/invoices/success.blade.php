@@ -81,13 +81,13 @@
         </aside>
     </div>
     <main data-xhr="main">
-        <section class="flex flex-col items-center justify-center mt-16">
+        <a href="#" class="flex flex-col items-center justify-center mt-16">
             <img class="w-48" src="{{ asset('images/confirmed.svg') }}" alt="ایمول">
             <div class="mt-8 font-bold text-center">
                 <div class="text-lg text-gray-600">تم قبول فاتوره برقم</div>
                 <div class="text-xl mt-2 text-gray-800">I96666TZ</div>
             </div>
-        </section>
+        </a>
     </main>
     <nav class="grid grid-cols-5 fixed inset-x-0 bottom-0 w-full h-12 rounded-t-xl shadow-lg border-t border-gray-300 bg-white">
         <a href="/cart" class="flex flex-col justify-center items-center text-center text-gray-600 hover:text-brand transition">
