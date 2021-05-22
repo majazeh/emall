@@ -30,8 +30,6 @@
                 </div>
             </div>
         </div>
-        <div class="flex-shrink-0 flex">
-            @include('client.products.cart')
-        </div>
+        @include('client.products.cart')
     </div>
 </div>
