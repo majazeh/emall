@@ -14,7 +14,7 @@
                     <a href="{{ route('products.show', $product->id) }}" class="text-sm font-bold line-clamp-1">{{ $product->title }}</a>
                 </div>
                 <div class="flex justify-between items-center text-xs font-medium text-gray-500 mt-1">
-                    <a href="#" class="flex items-center">
+                    <a href="{{ route('products.index', ['brand' => $product->brand->id]) }}" class="flex items-center">
                         <img class="w-4 h-4 rounded-full me-1" src="https://emall.market/storage/products/d379348ee2382fe6b1f38c46abbf3fc4-500.jpg" alt="">
                         <span>{{ $product->brand->title }}</span>
                     </a>
@@ -35,6 +35,6 @@
         </div>
     </div>
     @if ($product->cart)
-        @include('client.cart.removeItem')
+        {{-- @include('client.cart.removeItem') --}}
     @endif
 </div>

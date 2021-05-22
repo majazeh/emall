@@ -12,7 +12,7 @@
         <div class="flex">
             @foreach ($intro->categories as $parent)
                 @foreach ($parent->subs ?: [] as $item)
-                    <a href="#" class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
+                    <a href="{{ route('products.index', ['category' => $item->id]) }}" class="flex flex-nowrap justify-center items-center h-16 px-4 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
                         {{ $item->title }}
                     </a>
                 @endforeach

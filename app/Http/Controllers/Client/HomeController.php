@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Intro;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -20,6 +22,14 @@ class HomeController extends Controller
         $this->data->products = $products = Product::apiGet('products', $request->all());
         $this->data->global->title = __('Products');
         $products->setPath(route('products.index'))->links();
+        $products->appends(['category' => $request->category]);
+        $products->appends(['brand' => $request->brand]);
+        if(isset($products->response->category)){
+            $this->data->category = Category::fakeModel((object) ['data' => $products->response->category]);
+        }
+        if(isset($products->response->brand)){
+            $this->data->brand = Brand::fakeModel((object) ['data' => $products->response->brand]);
+        }
         return $this->view($request, 'client.products.index');
     }
 
