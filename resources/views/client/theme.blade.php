@@ -2,7 +2,7 @@
 @section('body')
     <header class="flex items-center justify-between bg-brand h-12 p-4">
         <div class="flex items-center text-white">
-            <button class="rounded focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-white" id="aside-open">
+            <button id="aside-open" class="rounded focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-white" id="aside-open">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -31,46 +31,49 @@
             </a>
         @endif
     </header>
-    <div class="fixed inset-0 w-full h-full bg-gray-900 bg-opacity-50 z-40 hidden">
-        <aside class="fixed inset-y-0 start-0 w-64 bg-white z-50">
-            <div class="flex items-center justify-between p-4 border-b border-gray-300">
-                <h1 class="text-xl text-brand text-center font-black">
-                    <a href="https://emall.market">ایمول</a>
-                </h1>
-                <button class="rounded focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-brand">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+
+    <aside id="aside" class="aside-client bg-gray-50 border-e border-gray-200 z-50 transition ease-in-out overflow-y-auto">
+        <div class="flex items-center h-20 px-2">
+            <h1 class="text-xl text-brand font-bold line-clamp-1">
+                <a href="{{ config('app.url') }}" class="block">ایمول</a>
+            </h1>
+        </div>
+        <ul class="px-2">
+            <li class="mb-1">
+                <a href="#" data-metarget-default class="flex items-center py-4 px-6 rounded text-gray-900 hover:bg-gray-200 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 me-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    <span class="font-semibold">من نحن</span>
+                </a>
+            </li>
+            <li class="mb-1">
+                <a href="#" data-metarget="categories" data-metarget-pattern="/dashboard/categories.*" class="flex items-center py-4 px-6 rounded text-gray-900 hover:bg-gray-200 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 me-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                </button>
-            </div>
-            <nav class="py-4">
-                <div class="py-2 px-4">
-                    <a href="#" class="text-base text-gray-700">
-                        <i class="fal fa-info w-6 text-center"></i>
-                        <span class="ms-2">من نحن</span>
-                    </a>
-                </div>
-                <div class="py-2 px-4">
-                    <a href="#" class="text-base text-gray-700">
-                        <i class="fal fa-phone w-6 text-center"></i>
-                        <span class="ms-2">اتصل بنا</span>
-                    </a>
-                </div>
-                <div class="py-2 px-4">
-                    <a href="#" class="text-base text-gray-700">
-                        <i class="fal fa-hand-holding-box w-6 text-center"></i>
-                        <span class="ms-2">طلب منتج</span>
-                    </a>
-                </div>
-                <div class="py-2 px-4">
-                    <a href="#" class="text-base text-gray-700">
-                        <i class="fab fa-facebook-f w-6 text-center"></i>
-                        <span class="ms-2">دعم اونلاین</span>
-                    </a>
-                </div>
-            </nav>
-        </aside>
-    </div>
+                    <span class="font-semibold">اتصل بنا</span>
+                </a>
+            </li>
+            <li class="mb-1">
+                <a href="#" data-metarget="products" data-metarget-pattern="/dashboard/products.*" class="flex items-center py-4 px-6 rounded text-gray-900 hover:bg-gray-200 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 me-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                    </svg>
+                    <span class="font-semibold">طلب منتج</span>
+                </a>
+            </li>
+            <li class="mb-1">
+                <a href="#" data-metarget="brands" data-metarget-pattern="/dashboard/brands.*" class="flex items-center py-4 px-6 rounded text-gray-900 hover:bg-gray-200 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 me-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="font-semibold">دعم اونلاین</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
     <main data-xhr="main">
         @yield('main')
     </main>

@@ -23,11 +23,11 @@
 }
 
 @media (min-width: 1024px) {
-    #aside {
+    #aside:not(.aside-client) {
         left: 0;
     }
 
-    [dir="rtl"] #aside {
+    [dir="rtl"] #aside:not(.aside-client) {
         right: 0;
         left: auto;
     }
