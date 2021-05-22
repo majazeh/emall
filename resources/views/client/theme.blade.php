@@ -74,9 +74,9 @@
             </li>
         </ul>
     </aside>
-    <main data-xhr="main">
+    <div data-xhr="main">
         @yield('main')
-    </main>
+    </div>
     <nav class="grid grid-cols-5 fixed inset-x-0 bottom-0 w-full h-12 rounded-t-xl shadow-lg border-t border-gray-300 bg-white">
         <a href="/cart" class="flex flex-col justify-center items-center text-center text-gray-600 hover:text-brand transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
