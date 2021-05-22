@@ -30,5 +30,5 @@
                 <span class="ms-2">شراء</span>
             </a>
         @endif
-</div>
+    </div>
 </div>
