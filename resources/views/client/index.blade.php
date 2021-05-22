@@ -24,7 +24,7 @@
     <h2 class="font-bold mb-4 cursor-default">المضاف حدیثا</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 mb-4">
         @include('client.products.items', ['products' => $intro->products])
-        {{ $intro->products->links() }}
     </div>
+    {{ $intro->products->links() }}
 </section>
 @endsection
