@@ -3,7 +3,7 @@
         <h2 class="font-bold text-gray-800 cursor-default">الفاتورة</h2>
         @if ($invoice->status !='fail' || $invoice->status != 'delivered')
             <div>
-                <select name="status" data-Lijax="change" data-method="PUT" data-action="{{ route('dashboard.invoices.update', $invoice->id) }}" name="status">
+                <select name="status" data-Lijax="change" data-method="PUT" data-action="{{ route('dashboard.invoices.update', $invoice->id) }}" name="status" class="border border-gray-400 focus:border-gray-400 h-10 rounded pl-4 pr-8 w-full text-sm focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand">
                     @if (!in_array($invoice->status, ['accepted', 'sent', 'delivered', 'rejected']))
                         <option>@lang($invoice->status)</option>
                     @endif
