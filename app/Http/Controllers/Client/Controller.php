@@ -23,7 +23,7 @@ class Controller extends Main
             if(!isset($this->data->cart)){
                 if(!$cart){
                     $this->data->cart = $cart = Invoice::apiGet('cart');
-                    auth()->user()->cartCache();
+                    auth()->user()->cartCache($cart);
                 }else{
                     $this->data->cart = $cart;
                 }

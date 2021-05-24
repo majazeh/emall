@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\InvoiceController as ClientInvoiceController;
+use App\Http\Controllers\Client\RequestController;
 use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\Controller;
@@ -43,7 +44,7 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/invoices', [ClientInvoiceController::class, 'index'])->name('invoices.index');
     Route::get('/invoices/{invoice}', [ClientInvoiceController::class, 'show'])->name('invoices.show');
-
+    Route::get('/request', [RequestController::class, 'show'])->name('request.show');
 });
 Route::group(['middleware' => ['auth:relative']], function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -52,6 +53,8 @@ Route::group(['middleware' => ['auth:relative']], function(){
     Route::get('products/{product}', [HomeController::class, 'show'])->name('products.show');
 });
 
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::get('/auth', [AuthController::class, 'form'])->name('auth.form');
 Route::post('/auth', [AuthController::class, 'post'])->name('auth.post');
@@ -113,16 +116,4 @@ Route::get('/dashboard/banners/', function() {
 
 Route::get('/profile', function() {
     return view('client.profile.index');
-});
-
-Route::get('/request', function() {
-    return view('client.products.request');
-});
-
-Route::get('/about', function() {
-    return view('client.about');
-});
-
-Route::get('/contact', function() {
-    return view('client.contact');
 });

@@ -53,4 +53,11 @@ class HomeController extends Controller
         $this->data->global->title = __('Products');
         return $this->view($request, 'client.products.show');
     }
+
+    public function about(Request $request){
+        return $this->view($request, 'client.about');
+    }
+    public function contact(Request $request){
+        return $this->view($request, 'client.contact');
+    }
 }
