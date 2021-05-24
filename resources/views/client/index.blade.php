@@ -13,7 +13,9 @@
             @foreach ($intro->categories as $parent)
                 @foreach ($parent->subs ?: [] as $item)
                     <a href="{{ route('products.index', ['category' => $item->id]) }}" class="flex flex-col flex-nowrap justify-center items-center py-4 px-8 bg-gray-50 border border-gray-300 rounded text-sm font-bold ms-4 whitespace-nowrap">
-                        <img class="w-12 h-12 mb-2" src="{{-- {{ $item->image_url->small }} --}}" alt="">
+                        @if ($item->image_url)
+                        <img class="w-12 h-12 mb-2" src="{{ $item->image_url->small }}" alt="">
+                        @endif
                         <span class="text-sm font-bold group-hover:text-brand transition">{{ $item->title }}</span>
                     </a>
                 @endforeach

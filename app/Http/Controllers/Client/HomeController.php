@@ -13,6 +13,7 @@ class HomeController extends Controller
 {
     public function index(Request $request){
         $this->data->intro = $intro = Intro::apiGet('/intro');
+        $this->data->cart = isset($intro->cart) ? $intro->cart : null;
         $intro->products->setPath(route('products.index'))->links();
 
         return $this->view($request, 'client.index');
