@@ -19,16 +19,20 @@ class HomeController extends Controller
     }
 
     public function products(Request $request){
-        $this->data->products = $products = Product::apiGet('products', $request->all());
-        $this->data->global->title = __('Products');
-        $products->setPath(route('products.index'))->links();
-        $products->appends(['category' => $request->category]);
-        $products->appends(['brand' => $request->brand]);
-        if(isset($products->response->category)){
-            $this->data->category = Category::fakeModel((object) ['data' => $products->response->category]);
-        }
-        if(isset($products->response->brand)){
-            $this->data->brand = Brand::fakeModel((object) ['data' => $products->response->brand]);
+        if($request->category || $request->brand){
+            $this->data->products = $products = Product::apiGet('products', $request->all());
+            $this->data->global->title = __('Products');
+            $products->setPath(route('products.index'))->links();
+            $products->appends(['category' => $request->category]);
+            $products->appends(['brand' => $request->brand]);
+            if(isset($products->response->category)){
+                $this->data->category = Category::fakeModel((object) ['data' => $products->response->category]);
+            }
+            if(isset($products->response->brand)){
+                $this->data->brand = Brand::fakeModel((object) ['data' => $products->response->brand]);
+            }
+        }else{
+            $this->data->categories = Category::apiCache();
         }
         return $this->view($request, 'client.products.index');
     }

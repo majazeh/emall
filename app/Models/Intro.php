@@ -7,7 +7,7 @@ use stdClass;
 class Intro extends API
 {
 
-    public static function fakeModel(object $body){
+    public static function fakeModel($body){
         $result = new stdClass;
         $result->categories = Category::hydrate($body->categories->data);
         if(isset($body->auth)){

@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Closure;
-use Exception;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -55,12 +53,15 @@ class API extends Model{
             }
         }
         $response = $response->$method($endpoint, $data);
-        $response->onError(function($response){
+        $response->onError(function($response) use ($endpoint){
             if($response->getStatusCode() == 422){
                 throw ValidationException::withMessages((array) $response->object()->errors);
             }
             if(config('app.env') == 'local'){
-                dd($response->collect());
+                dd([
+                    $endpoint,
+                    $response->collect()
+                ]);
                 echo $response->body();
                 exit();
             }
@@ -77,7 +78,8 @@ class API extends Model{
     }
 
 
-    public static function fakeModel(object $body){
+    public static function fakeModel($body){
+        if(!is_object($body)) return $body;
         if(isset($body->data) && is_object($body->data)){
             $result = new static((array) $body->data);
             $result->common($body->data, $body);
