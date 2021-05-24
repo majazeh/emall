@@ -122,3 +122,7 @@ Route::get('/request', function() {
 Route::get('/about', function() {
     return view('client.about');
 });
+
+Route::get('/contact', function() {
+    return view('client.contact');
+});
