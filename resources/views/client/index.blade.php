@@ -1,10 +1,7 @@
 @extends($layouts->theme)
 @section('main')
 <section class="mt-4 mb-8 px-4">
-    <a href="#" class="flex justify-center items-center h-24 bg-brand text-white rounded overflow-hidden">
-        {{-- <img class="w-full h-full object-cover object-center" src="" alt=""> --}}
-        <span>@lang('Banner')</span>
-    </a>
+    @include('client.banners')
 </section>
 <section class="mb-8">
     <h2 class="font-bold mb-4 px-4">@lang('Categories')</h2>
