@@ -45,6 +45,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/invoices', [ClientInvoiceController::class, 'index'])->name('invoices.index');
     Route::get('/invoices/{invoice}', [ClientInvoiceController::class, 'show'])->name('invoices.show');
     Route::get('/request', [RequestController::class, 'show'])->name('request.show');
+
+    Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
 });
 Route::group(['middleware' => ['auth:relative']], function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -62,58 +64,8 @@ Route::post('/auth', [AuthController::class, 'post'])->name('auth.post');
 // Route::get('/auth/{verify}', [AuthController::class, 'verifyForm'])->name('auth.verifyForm');
 Route::post('/auth/{verify}', [AuthController::class, 'verify'])->name('auth.verify');
 
-Route::get('/public', function() {
-    return view('public.index');
-});
-
-Route::get('/public/login', function() {
-    return view('public.login.index');
-});
-
-Route::get('/public/login/SMScode', function() {
-    return view('public.login.SMScode');
-});
-
-Route::get('/public/invoices', function() {
-    return view('public.invoices.index');
-});
-
-Route::get('/public/invoices/invoice', function() {
-    return view('public.invoices.invoice');
-});
-
-Route::get('/public/products/search', function() {
-    return view('public.products.search');
-});
-
-Route::get('/public/products/product', function() {
-    return view('public.products.product');
-});
-
-Route::get('/public/products/categories', function() {
-    return view('public.products.categories');
-});
-
-Route::get('/public/products/categoryProducts', function() {
-    return view('public.products.categoryProducts');
-});
-
-Route::get('/public/invoices/cart', function() {
-    return view('public.invoices.cart');
-});
-
-Route::get('/public/invoices/location', function() {
-    return view('public.invoices.location');
-});
-
-Route::get('/public/invoices/success', function() {
-    return view('public.invoices.success');
-});
-
 Route::get('/dashboard/banners/', function() {
     return view('dashboard.banners.index');
 });
 
-Route::get('/profile', function() {
-    return view('client.profile.index');
-});
+

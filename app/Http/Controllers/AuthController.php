@@ -53,4 +53,9 @@ class AuthController extends Controller
             'direct' => true
         ];
     }
+
+    public function profile(Request $request){
+        $this->data->layouts->theme = 'client.theme';
+        return $this->view($request, 'client.profile.index');
+    }
 }
