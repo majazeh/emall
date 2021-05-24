@@ -42,36 +42,27 @@
         </div>
         <ul class="px-2">
             <li class="mb-1">
-                <a href="#" data-metarget-default class="flex items-center py-4 px-6 rounded text-gray-900 hover:bg-gray-200 transition">
+                <a href="#" {{-- data-metarget-default --}} class="flex items-center py-4 px-6 rounded text-gray-900 hover:bg-gray-200 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 me-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                    <span class="font-semibold">من نحن</span>
+                    <span class="font-semibold">@lang('About us')</span>
                 </a>
             </li>
             <li class="mb-1">
-                <a href="#" data-metarget="categories" data-metarget-pattern="/dashboard/categories.*" class="flex items-center py-4 px-6 rounded text-gray-900 hover:bg-gray-200 transition">
+                <a href="#" {{-- data-metarget="categories" data-metarget-pattern="/dashboard/categories.*" --}} class="flex items-center py-4 px-6 rounded text-gray-900 hover:bg-gray-200 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 me-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    <span class="font-semibold">اتصل بنا</span>
+                    <span class="font-semibold">@lang('Contact us')</span>
                 </a>
             </li>
-            <li class="mb-1">
-                <a href="#" data-metarget="products" data-metarget-pattern="/dashboard/products.*" class="flex items-center py-4 px-6 rounded text-gray-900 hover:bg-gray-200 transition">
+            <li>
+                <a href="#" {{-- data-metarget="products" data-metarget-pattern="/dashboard/products.*" --}} class="flex items-center py-4 px-6 rounded text-gray-900 hover:bg-gray-200 transition">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 me-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                     </svg>
-                    <span class="font-semibold">طلب منتج</span>
-                </a>
-            </li>
-            <li class="mb-1">
-                <a href="#" data-metarget="brands" data-metarget-pattern="/dashboard/brands.*" class="flex items-center py-4 px-6 rounded text-gray-900 hover:bg-gray-200 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 me-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span class="font-semibold">دعم اونلاین</span>
+                    <span class="font-semibold">@lang('Request product')</span>
                 </a>
             </li>
         </ul>
