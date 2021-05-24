@@ -114,3 +114,7 @@ Route::get('/dashboard/banners/', function() {
 Route::get('/profile', function() {
     return view('client.profile.index');
 });
+
+Route::get('/request', function() {
+    return view('client.products.request');
+});
