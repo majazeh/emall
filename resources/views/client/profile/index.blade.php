@@ -80,7 +80,11 @@
             </nav>
         </aside>
     </div>
+
     <main data-xhr="main">
+        <div class="mt-12 px-4">
+            <img class="w-64 mx-auto" src="{{ asset('images/profile.svg') }}" alt="@lang('Profile')">
+        </div>
         <form class="w-full sm:w-1/2 lg:w-1/3 2xl:w-1/4 mx-auto px-4 mt-16" action="#" method="POST">
             <div class="border border-gray-200 rounded p-4 mt-8">
                 <div>
@@ -100,6 +104,7 @@
             </div>
         </form>
     </main>
+
     <nav class="grid grid-cols-5 fixed inset-x-0 bottom-0 w-full h-12 rounded-t-xl shadow-lg border-t border-gray-300 bg-white">
         <a href="/cart" class="flex flex-col justify-center items-center text-center text-gray-600 hover:text-brand transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
