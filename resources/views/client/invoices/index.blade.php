@@ -8,7 +8,7 @@
         <div class="flex items-center px-2 text-sm text-white font-bold">حالة</div>
     </div>
     @foreach ($invoices as $invoice)
-        <a href="{{ route('invoices.show', $invoice->id) }}" class="grid grid-cols-3 h-12 border border-gray-300 mt-2 rounded hover:bg-gray-100 transition">
+        <a href="{{ in_array($invoice->status, ['draft', 'requested']) ? route('cart.show') : route('invoices.show', $invoice->id) }}" class="grid grid-cols-3 h-12 border border-gray-300 mt-2 rounded hover:bg-gray-100 transition">
             <div class="flex flex-col justify-center px-2">
                 <div class="text-sm font-bold">{{ $invoice->id }}</div>
                 <div class="text-xs text-gray-500">{{ $invoice->created_at }}</div>
