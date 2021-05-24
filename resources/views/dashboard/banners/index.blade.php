@@ -107,31 +107,28 @@
                 @csrf
                 <div class="border border-gray-200 rounded p-4 mt-8">
                     <div>
-                        <label for="image" class="block mb-4 text-sm text-gray-700 font-bold cursor-default">لافتة 1</label>
-                        {{-- @if ($banner->image_url) --}}
+                        <label for="banner1" class="block mb-4 text-sm text-gray-700 font-bold cursor-default">لافتة 1</label>
                             <div class="h-32 w-full rounded overflow-hidden mb-4">
                                 <img class="h-full w-full" src="https://dev.emall.market/storage/products/0e31702717b0fdaf3ba812e0642dfb85-150.png" alt="">
                             </div>
-                        {{-- @endif --}}
-                        <input type="file" name="image" id="image">
+                        <input type="file" name="banner1" id="banner1">
+                        <input type="url" name="url" placeholder="@lang('Enter your link')" class="w-full h-10 px-4 rounded text-sm text-left ltr placeholder-gray-400 border border-gray-400 focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand transition mt-4">
                     </div>
                     <div class="mt-4 pt-4 border-t border-gray-200">
-                        <label for="image" class="block mb-4 text-sm text-gray-700 font-bold cursor-default">لافتة 2</label>
-                        {{-- @if ($banner->image_url) --}}
+                        <label for="banner2" class="block mb-4 text-sm text-gray-700 font-bold cursor-default">لافتة 2</label>
                             <div class="h-32 w-full rounded overflow-hidden mb-4">
                                 <img class="h-full w-full" src="https://dev.emall.market/storage/products/df11e96f0bbc05ff2e60d9529fe53220-150.png" alt="">
                             </div>
-                        {{-- @endif --}}
-                        <input type="file" name="image" id="image">
+                        <input type="file" name="banner2" id="banner2">
+                        <input type="url" name="url" placeholder="@lang('Enter your link')" class="w-full h-10 px-4 rounded text-sm text-left ltr placeholder-gray-400 border border-gray-400 focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand transition mt-4">
                     </div>
                     <div class="mt-4 pt-4 border-t border-gray-200">
-                        <label for="image" class="block mb-4 text-sm text-gray-700 font-bold cursor-default">لافتة 3</label>
-                        {{-- @if ($banner->image_url) --}}
+                        <label for="banner3" class="block mb-4 text-sm text-gray-700 font-bold cursor-default">لافتة 3</label>
                             <div class="h-32 w-full rounded overflow-hidden mb-4">
                                 <img class="h-full w-full" src="https://dev.emall.market/storage/products/bd3ea3e128c27d337dc3c598c8f3e78f-150.png" alt="">
                             </div>
-                        {{-- @endif --}}
-                        <input type="file" name="image" id="image">
+                        <input type="file" name="banner3" id="banner3">
+                        <input type="url" name="url" placeholder="@lang('Enter your link')" class="w-full h-10 px-4 rounded text-sm text-left ltr placeholder-gray-400 border border-gray-400 focus:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-brand transition mt-4">
                     </div>
                 </div>
 
