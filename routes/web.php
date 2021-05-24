@@ -118,3 +118,7 @@ Route::get('/profile', function() {
 Route::get('/request', function() {
     return view('client.products.request');
 });
+
+Route::get('/about', function() {
+    return view('client.about');
+});
