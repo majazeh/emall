@@ -106,3 +106,7 @@ Route::get('/public/invoices/location', function() {
 Route::get('/public/invoices/success', function() {
     return view('public.invoices.success');
 });
+
+Route::get('/dashboard/banners/', function() {
+    return view('dashboard.banners.index');
+});
