@@ -82,7 +82,7 @@
     </div>
     <main data-xhr="main">
         <div class="mt-12 px-4">
-            <img class="w-80 mx-auto" src="{{ asset('images/about.svg') }}" alt="ایمول">
+            <img class="w-72 mx-auto" src="{{ asset('images/about.svg') }}" alt="ایمول">
         </div>
         <div class="w-full sm:w-2/3 lg:w-3/4 2xl:w-4/5 mx-auto px-4 mt-12 pb-24">
             <h2 class="text-lg text-brand font-bold mb-4 text-center">@lang('About us')</h2>
