@@ -110,3 +110,7 @@ Route::get('/public/invoices/success', function() {
 Route::get('/dashboard/banners/', function() {
     return view('dashboard.banners.index');
 });
+
+Route::get('/profile', function() {
+    return view('client.profile.index');
+});
