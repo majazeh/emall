@@ -1,4 +1,5 @@
-<form class="w-full sm:w-1/2 lg:w-1/3 2xl:w-1/4 mx-auto px-4 mt-8" action="#" method="POST">
+<form class="w-full sm:w-1/2 lg:w-1/3 2xl:w-1/4 mx-auto px-4 mt-8" action="{{ route('pr.store') }}" method="POST">
+    @csrf
     <div class="border border-gray-200 rounded p-4 mt-8">
         <div>
             <label for="title" class="block mb-2 text-sm text-gray-700 font-bold cursor-default">@lang('Product name')</label>

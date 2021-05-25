@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Intro;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use stdClass;
 
@@ -59,5 +60,12 @@ class HomeController extends Controller
     }
     public function contact(Request $request){
         return $this->view($request, 'client.contact');
+    }
+
+    public function prStore(Request $request){
+        User::apiPost('product-requests', $request->all());
+        return [
+            'redirect' => route('home'),
+        ];
     }
 }
