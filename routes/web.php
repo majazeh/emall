@@ -38,6 +38,7 @@ Route::prefix('dashboard')->group(function () {
 });
 
 Route::group(['middleware' => ['auth']], function(){
+    Route::match(['put', 'patch'], 'me', [AuthController::class, 'meUpdate'])->name('meUpdate');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('/cart/items/{product}', [CartController::class, 'store'])->name('cart.items.store');
     Route::get('/cart', [CartController::class, 'show'])->name('cart.show');

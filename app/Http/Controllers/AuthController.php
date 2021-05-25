@@ -58,4 +58,11 @@ class AuthController extends Controller
         $this->data->layouts->theme = 'client.theme';
         return $this->view($request, 'client.profile.index');
     }
+
+    public function meUpdate(Request $request){
+        $token = auth()->user()->response->token;
+        $user = User::apiPut('me', $request->all());
+        $user->response->token = $token;
+        $request->session()->put('user', $user);
+    }
 }

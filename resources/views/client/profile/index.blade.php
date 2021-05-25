@@ -3,7 +3,9 @@
 <div class="mt-12 px-4">
     <img class="w-64 mx-auto" src="{{ asset('images/profile.svg') }}" alt="@lang('Profile')">
 </div>
-<form class="w-full sm:w-1/2 lg:w-1/3 2xl:w-1/4 mx-auto px-4 mt-16" action="#" method="POST">
+<form class="w-full sm:w-1/2 lg:w-1/3 2xl:w-1/4 mx-auto px-4 mt-16" action="{{ route('meUpdate') }}" method="POST">
+    @csrf
+    @method('PUT')
     <div class="border border-gray-200 rounded p-4 mt-8">
         <div>
             <label for="phone" class="block mb-2 text-sm text-gray-700 font-bold cursor-default">@lang('Phone')</label>
