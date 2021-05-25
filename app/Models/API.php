@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Closure;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -56,6 +57,12 @@ class API extends Model{
         $response->onError(function($response) use ($endpoint){
             if($response->getStatusCode() == 422){
                 throw ValidationException::withMessages((array) $response->object()->errors);
+            }
+            if($response->getStatusCode() == 401){
+                session()->forget('user');
+                throw new AuthenticationException(
+                    'Unauthenticated.', ['cookie'], route('auth.form')
+                );
             }
             if(config('app.env') == 'local'){
                 dd([
