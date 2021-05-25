@@ -64,5 +64,9 @@ class AuthController extends Controller
         $user = User::apiPut('me', $request->all());
         $user->response->token = $token;
         $request->session()->put('user', $user);
+        return[
+            'redirect' => route('home'),
+            'direct' => true
+        ];
     }
 }
