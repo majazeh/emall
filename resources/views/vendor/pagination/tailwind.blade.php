@@ -65,11 +65,7 @@
                             @lang('Next')
                         </a>
                     @else
-                        <span aria-disabled="true" aria-label="@lang('Next')">
-                            <span class="flex justify-center items-center flex-shrink-0 h-7 text-gray-700 transition ms-2" aria-hidden="true">
-                                @lang('Next')
-                            </span>
-                        </span>
+
                     @endif
                 </span>
             </div>
