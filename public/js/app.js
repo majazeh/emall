@@ -696,9 +696,11 @@ function initMap() {
         timer = setTimeout(next, timing);
     }
     davat.banner = function(_base){
-        $('.emall_slider').eq(1).hide();
-        $('.emall_slider').eq(2).hide();
-        timeOut();
+        if(count){
+            $('.emall_slider').eq(1).hide();
+            $('.emall_slider').eq(2).hide();
+            timeOut();
+        }
     }
 
     $('.slider_action').on('click', function(){
