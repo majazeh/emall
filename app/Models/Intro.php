@@ -18,6 +18,7 @@ class Intro extends API
         }
         $result->products = Product::fakeModel($body->products);
         $result->brands = Brand::fakeModel($body->brands);
+        $result->banners = Banner::fakeModel($body->banners);
         return $result;
     }
 }

@@ -1,8 +1,10 @@
 <div class="flex flex-col items-center justify-center relative">
     <div class="w-full bg-white rounded overflow-x-hidden flex snap-x" style="height: 32vh">
-        <div class="snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-brand" id="slide-1">
-            <img class="w-full h-full object-cover object-center" src="" alt="">
-        </div>
+        @foreach ($intro->banners ? $intro->banners : [] as $item)
+            <div class="emall_slider snap-start w-full h-full flex items-center justify-center text-white text-4xl font-bold flex-shrink-0 bg-brand" id="slide-{{ $loop->index +1 }}">
+                <img class="w-full h-full object-cover object-center" src="{{ $item->image }}" alt="">
+            </div>
+        @endforeach
     </div>
     <div class="w-full flex justify-between absolute p-4">
         <a href="" class="flex justify-center items-center text-white rounded-full">

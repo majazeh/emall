@@ -5,6 +5,7 @@ use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\InvoiceController as ClientInvoiceController;
 use App\Http\Controllers\Client\RequestController;
+use App\Http\Controllers\Dashboard\BannerController;
 use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\Controller;
@@ -15,10 +16,10 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('dashboard')->group(function () {
-    Route::get('products', function(){
-        return Product::apiGet('products');
-    });
     Route::group(['middleware' => ['auth']], function(){
+        Route::get('products', function(){
+            return Product::apiGet('products');
+        });
         Route::get('/', [Controller::class, 'dashboard'])->name('dashboard');
         Route::resource('users', UserController::class, ['as' => 'dashboard']);
         Route::resource('categories', CategoryController::class, ['as' => 'dashboard']);
@@ -31,6 +32,8 @@ Route::prefix('dashboard')->group(function () {
         Route::resource('invoices', InvoiceController::class, ['as' => 'dashboard']);
         Route::match(['put', 'patch'], 'invoice-items/{item}', [InvoiceController::class, 'updateItem'])->name('dashboard.invoice-items.update');
         Route::post('invoice-items/{invoice}', [InvoiceController::class, 'storeItem'])->name('dashboard.invoice-items.store');
+        Route::get('banners', [BannerController::class, 'show'])->name('dashboard.banners.show');
+        Route::post('banners', [BannerController::class, 'store'])->name('dashboard.banners.store');
     });
 });
 
@@ -63,9 +66,5 @@ Route::post('/auth', [AuthController::class, 'post'])->name('auth.post');
 
 // Route::get('/auth/{verify}', [AuthController::class, 'verifyForm'])->name('auth.verifyForm');
 Route::post('/auth/{verify}', [AuthController::class, 'verify'])->name('auth.verify');
-
-Route::get('/dashboard/banners/', function() {
-    return view('dashboard.banners.index');
-});
 
 
